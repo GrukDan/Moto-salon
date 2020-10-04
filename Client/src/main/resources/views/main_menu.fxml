@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="640.0" prefWidth="971.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="653.0" fitWidth="978.0" layoutX="-3.0">
+         <image>
+            <Image url="@../img/3.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="orders_bn" layoutX="346.0" layoutY="327.0" mnemonicParsing="false" onAction="#ordersButtonClick" prefHeight="69.0" prefWidth="315.0" style="-fx-border-radius: 30; -fx-background-radius: 30;" text="Заказы">
+         <font>
+            <Font name="System Bold" size="32.0" />
+         </font>
+      </Button>
+      <Button fx:id="product_bn" layoutX="346.0" layoutY="190.0" mnemonicParsing="false" onAction="#productButtonClick" prefHeight="69.0" prefWidth="315.0" style="-fx-border-radius: 30; -fx-background-radius: 30;" text="Товары">
+         <font>
+            <Font name="System Bold" size="32.0" />
+         </font>
+      </Button>
+      <Button fx:id="producer_bn" layoutX="346.0" layoutY="58.0" mnemonicParsing="false" onAction="#producerButtonClick" prefHeight="69.0" prefWidth="315.0" style="-fx-border-radius: 30; -fx-background-radius: 30;" text="Поставщики">
+         <font>
+            <Font name="System Bold" size="32.0" />
+         </font>
+      </Button>
+      <Button fx:id="option_bn" layoutX="691.0" layoutY="588.0" mnemonicParsing="false" onAction="#optionButtonClick" prefHeight="34.0" prefWidth="107.0" style="-fx-border-radius: 30; -fx-background-radius: 30;" text="Option">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="exit_bn" layoutX="843.0" layoutY="588.0" mnemonicParsing="false" onAction="#exitButtonClick" prefHeight="34.0" prefWidth="107.0" style="-fx-border-radius: 30; -fx-background-radius: 30;" text="Exit">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="users_btn" layoutX="346.0" layoutY="462.0" mnemonicParsing="false" onAction="#usersButtonClick" prefHeight="69.0" prefWidth="315.0" style="-fx-border-radius: 30; -fx-background-radius: 30;" text="Пользователи">
+         <font>
+            <Font name="System Bold" size="32.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
