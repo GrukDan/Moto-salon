@@ -2,14 +2,10 @@ package org.bsuir.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.bsuir.dto.ProductDto;
-import org.bsuir.model.Producer;
 import org.bsuir.model.ProductType;
 import org.bsuir.service.ProductTypeService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @Slf4j
 @RestController

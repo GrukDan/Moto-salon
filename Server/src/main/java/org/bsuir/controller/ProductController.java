@@ -42,11 +42,13 @@ public class ProductController {
 
     @GetMapping(value = "/all-dto")
     public ResponseEntity getAllDto(){
+        log.info("GET ALL PRODUCT-DTOS");
         return ResponseEntity.ok(productService.getAllDto());
     }
 
     @PostMapping(value = "/save-all")
     public ResponseEntity saveAll(@RequestBody List<ProductDto> productDtos){
+        log.info("SAVE PRODUCT-DTOS");
         return ResponseEntity.ok(productService.saveAll(productDtos));
     }
 

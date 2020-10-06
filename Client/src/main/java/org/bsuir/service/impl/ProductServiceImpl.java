@@ -2,7 +2,6 @@ package org.bsuir.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.bsuir.dto.ProductDto;
-import org.bsuir.model.Producer;
 import org.bsuir.model.Product;
 import org.bsuir.service.ProductService;
 import org.springframework.beans.factory.annotation.Value;

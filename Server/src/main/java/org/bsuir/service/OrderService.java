@@ -1,6 +1,5 @@
 package org.bsuir.service;
 
-import javassist.runtime.Desc;
 import org.bsuir.dto.OrdersDto;
 import org.bsuir.model.Description;
 import org.bsuir.model.Orders;

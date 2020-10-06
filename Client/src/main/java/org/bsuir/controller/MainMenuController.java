@@ -19,6 +19,7 @@ public class MainMenuController {
     private final ProductController productController;
     private final UserController userController;
     private final OrderController orderController;
+    private final UserOptionController userOptionController;
 
     @FXML
     private Button orders_bn;
@@ -38,14 +39,28 @@ public class MainMenuController {
     @FXML
     private Button exit_bn;
 
+    public void initialize() {
+        users_btn.setVisible(userOptionController.isAdmin());
+    }
+
     @FXML
     void exitButtonClick(ActionEvent event) {
-
+        ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
     }
 
     @FXML
     void optionButtonClick(ActionEvent event) {
-
+        Stage stage = new Stage();
+        stage.setTitle("Управление аккаунтом");
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("views/user-option.fxml"));
+        loader.setController(userOptionController);
+        userOptionController.setStage(stage);
+        try {
+            stage.setScene(new Scene(loader.load()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        stage.showAndWait();
     }
 
     @FXML

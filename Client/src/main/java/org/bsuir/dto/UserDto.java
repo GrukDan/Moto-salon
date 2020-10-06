@@ -1,10 +1,8 @@
 package org.bsuir.dto;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.bsuir.model.Role;
 import org.bsuir.model.User;
 
 @Data

@@ -3,7 +3,7 @@ package org.bsuir.dto;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.bsuir.model.*;
+import org.bsuir.model.Orders;
 
 import java.sql.Timestamp;
 

@@ -3,7 +3,6 @@ package org.bsuir.model;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.Objects;
 
 @Entity
 @Data

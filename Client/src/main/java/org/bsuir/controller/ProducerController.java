@@ -34,6 +34,7 @@ public class ProducerController {
     private static final String REQUIRED_FIELD = "Это поле обязательно!";
     private static final String ERROR_INPUT = "Данные введены с ошибкой";
     private final ProducerService producerService;
+    private final UserOptionController userOptionController;
 
     @FXML
     private TableView<Producer> producers_tbl;
@@ -149,6 +150,10 @@ public class ProducerController {
                 new KeyFrame(Duration.seconds(2), new KeyValue(progress_bar.progressProperty(), 1), new KeyValue(progress_bar.progressProperty(), 1)));
         timeline.setCycleCount(Timeline.INDEFINITE);
         loadProducers();
+        producers_tbl.setEditable(userOptionController.isAdmin());
+        save_btn.setDisable(!userOptionController.isAdmin());
+        delete_btn.setDisable(!userOptionController.isAdmin());
+        save_producers_btn.setDisable(!userOptionController.isAdmin());
     }
 
     private void setUpColumns() {

@@ -2,7 +2,6 @@ package org.bsuir.service.Impl;
 
 import lombok.RequiredArgsConstructor;
 import org.bsuir.dto.ProductDto;
-import org.bsuir.model.Producer;
 import org.bsuir.model.Product;
 import org.bsuir.model.ProductType;
 import org.bsuir.repository.ProductRepository;

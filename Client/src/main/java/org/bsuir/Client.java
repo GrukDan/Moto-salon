@@ -2,14 +2,12 @@ package org.bsuir;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.bsuir.config.AppConfig;
 import org.bsuir.controller.AuthController;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 
 public class Client extends Application {
 
@@ -25,7 +23,6 @@ public class Client extends Application {
         primaryStage.setScene(new Scene(loader.load()));
         primaryStage.setTitle("Авторизация");
         primaryStage.show();
-
     }
 
 

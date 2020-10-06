@@ -40,7 +40,7 @@
                                         <Font name="System Bold" size="22.0" />
                                     </font>
                                 </Button>
-                        <Button fx:id="delete_btn" layoutX="53.0" layoutY="365.0" mnemonicParsing="false" onAction="#deleteSelected" prefHeight="40.0" prefWidth="151.0" style="-fx-background-color: lightgreen; -fx-background-radius: 25; -fx-border-radius: 25; -fx-border-color: black;" text="Удалить">
+                        <Button fx:id="delete_btn" layoutX="53.0" layoutY="365.0" mnemonicParsing="false" onAction="#deleteSelected" prefHeight="40.0" prefWidth="151.0" style="-fx-background-color: #e23b3b; -fx-background-radius: 25; -fx-border-radius: 25; -fx-border-color: black;" text="Удалить">
                            <font>
                               <Font name="System Bold" size="22.0" />
                            </font>

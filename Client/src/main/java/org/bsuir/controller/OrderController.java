@@ -4,12 +4,10 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.validation.RequiredFieldValidator;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.geometry.Side;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
@@ -18,18 +16,18 @@ import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
-import javafx.util.Callback;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.bsuir.dto.OrderDto;
-import org.bsuir.dto.UserDto;
 import org.bsuir.model.*;
 import org.bsuir.service.*;
 import org.springframework.stereotype.Controller;
 
 import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -42,6 +40,7 @@ public class OrderController {
     private final ProducerService producerService;
     private final ProductService productService;
     private final ProductTypeService productTypeService;
+    private final UserOptionController userOptionController;
 
     @Setter
     private Stage stage;
@@ -149,6 +148,7 @@ public class OrderController {
     }
 
     private void initStatusChart() {
+        statusChart.getData().clear();
         Map<String,Integer> statusNumber = new HashMap<>();
         orders.forEach(orderDto -> {
             if(!statusNumber.containsKey(orderDto.getStatusName())){
@@ -162,6 +162,7 @@ public class OrderController {
     }
 
     private void initProducerChart(){
+        producerChart.getData().clear();
         Map<String,Integer> producerNumber = new HashMap<>();
         orders.forEach(orderDto -> {
             if(!producerNumber.containsKey(orderDto.getProducerName())){
@@ -199,6 +200,11 @@ public class OrderController {
         refreshTable(FXCollections.observableArrayList(orders));
         initStatusChart();
         initProducerChart();
+
+        orders_tbl.setEditable(userOptionController.isAdmin());
+        add_btn.setDisable(!userOptionController.isAdmin());
+        save_btn.setDisable(!userOptionController.isAdmin());
+        delete_btn.setDisable(!userOptionController.isAdmin());
     }
 
     private void setComboBoxData() {
@@ -277,6 +283,7 @@ public class OrderController {
                 order.setProducer(producer.getIdProducer());
                 order.setOrderTime(Timestamp.valueOf(datepicker.getValue().atStartOfDay()));
                 order.setQuantity(quant_box.getValue());
+                order.setCustomer(userOptionController.getAuthorizedUser().getIdUser());
                 saveDescription(order);
                 orderService.save(order);
                 loadOrders();
@@ -322,7 +329,7 @@ public class OrderController {
 
     @FXML
     void close(ActionEvent event) {
-
+        stage.close();
     }
 
     @FXML

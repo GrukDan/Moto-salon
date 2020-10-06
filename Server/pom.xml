@@ -18,12 +18,11 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <start-class>bsuir.BackendApplication</start-class>
+        <start-class>org.bsuir.ServerApplication</start-class>
         <jsonwebtoken.version>0.9.1</jsonwebtoken.version>
         <javassist.version>3.23.1-GA</javassist.version>
         <mysql-connector.version>5.1.47</mysql-connector.version>
     </properties>
-
     <dependencies>
     <dependency>
         <groupId>org.springframework.boot</groupId>
@@ -41,10 +40,6 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-tomcat</artifactId>
         <scope>provided</scope>
-    </dependency>
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-mail</artifactId>
     </dependency>
     <dependency>
         <groupId>mysql</groupId>

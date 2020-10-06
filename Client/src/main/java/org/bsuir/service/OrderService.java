@@ -1,7 +1,6 @@
 package org.bsuir.service;
 
 import org.bsuir.dto.OrderDto;
-import org.bsuir.dto.ProductDto;
 import org.bsuir.model.Description;
 import org.bsuir.model.Order;
 

@@ -1,8 +1,5 @@
 package org.bsuir.service;
 
-import org.bsuir.model.ProductType;
-import org.bsuir.model.User;
-
 import java.io.Serializable;
 import java.util.List;
 import java.util.Optional;

@@ -15,6 +15,8 @@ public interface UserRepository extends JpaRepository<User,Long> {
 
     boolean existsByEmailAndPassword(String email,String password);
 
+    User findByEmailAndPassword(String email,String password);
+
     @Transactional
     @Modifying
     @Query(value = "DELETE FROM User u WHERE u.idUser NOT IN :ids")

@@ -1,9 +1,7 @@
 package org.bsuir.service.Impl;
 
 import lombok.RequiredArgsConstructor;
-import org.bsuir.dto.ProductDto;
 import org.bsuir.dto.UserDto;
-import org.bsuir.model.Product;
 import org.bsuir.model.Role;
 import org.bsuir.model.User;
 import org.bsuir.passay.PasswordGeneratorService;
@@ -26,8 +24,10 @@ public class UserServiceImpl implements UserService {
     private final PasswordGeneratorService passwordGeneratorService;
 
     @Override
-    public boolean authenticate(String email, String password) {
-        return userRepository.existsByEmailAndPassword(email, password);
+    public UserDto authenticate(String email, String password) {
+        User user = userRepository.findByEmailAndPassword(email, password);
+        Role role = roleRepository.findById(user.getRole()).orElseThrow(NullPointerException::new);
+        return UserDto.of(user,role);
     }
 
     @Override
@@ -86,5 +86,12 @@ public class UserServiceImpl implements UserService {
         return userDtos.stream()
                 .map(UserDto::createUser)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public UserDto saveDto(UserDto userDto) {
+        User user = userRepository.save(userDto.createUser());
+        Role role = roleRepository.findById(user.getRole()).orElseThrow(NullPointerException::new);
+        return UserDto.of(user,role);
     }
 }

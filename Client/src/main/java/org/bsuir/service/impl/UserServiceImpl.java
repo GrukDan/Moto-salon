@@ -1,10 +1,8 @@
 package org.bsuir.service.impl;
 
 import lombok.RequiredArgsConstructor;
-import org.bsuir.dto.ProductDto;
+import org.bsuir.dto.AuthRequest;
 import org.bsuir.dto.UserDto;
-import org.bsuir.model.AuthRequest;
-import org.bsuir.model.Product;
 import org.bsuir.model.User;
 import org.bsuir.service.UserService;
 import org.springframework.beans.factory.annotation.Value;
@@ -37,9 +35,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean auth(String email, String password) {
+    public UserDto auth(String email, String password) {
         return Objects.requireNonNull(
-                restTemplate.postForObject(url + "/users/auth",new AuthRequest(email,password),boolean.class));
+                restTemplate.postForObject(url + "/users/auth",new AuthRequest(email,password),UserDto.class));
     }
 
     @Override
@@ -55,5 +53,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<UserDto> saveAll(List<UserDto> userDtos) {
         return Arrays.asList(Objects.requireNonNull(restTemplate.postForObject(url + "/users/save-all", userDtos, UserDto[].class)));
+    }
+
+    @Override
+    public UserDto saveDto(UserDto user) {
+        return restTemplate.postForObject(url + "/users/dto",user, UserDto.class);
     }
 }

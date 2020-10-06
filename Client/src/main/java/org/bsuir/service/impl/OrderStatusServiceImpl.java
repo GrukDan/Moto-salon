@@ -1,7 +1,6 @@
 package org.bsuir.service.impl;
 
 import lombok.RequiredArgsConstructor;
-import org.bsuir.model.Order;
 import org.bsuir.model.OrderStatus;
 import org.bsuir.service.OrderStatusService;
 import org.springframework.beans.factory.annotation.Value;

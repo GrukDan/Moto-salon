@@ -102,8 +102,6 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Orders save(Orders entity) {
-        //todo
-        entity.setCustomer(userRepository.getOne(3L).getIdUser());
         return orderRepository.saveAndFlush(entity);
     }
 

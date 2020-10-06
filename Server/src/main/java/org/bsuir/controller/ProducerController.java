@@ -40,6 +40,7 @@ public class ProducerController {
 
     @PostMapping(value = "/save-all")
     public ResponseEntity saveAll(@RequestBody List<Producer> producers){
+        log.info("SAVE PRODUCERS");
         return ResponseEntity.ok(producerService.saveAll(producers));
     }
 }

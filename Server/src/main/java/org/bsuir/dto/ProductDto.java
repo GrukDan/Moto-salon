@@ -5,7 +5,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.bsuir.model.Product;
-import org.bsuir.model.ProductType;
 
 @Data
 @AllArgsConstructor

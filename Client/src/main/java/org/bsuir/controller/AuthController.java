@@ -1,11 +1,10 @@
 package org.bsuir.controller;
 
-import com.jfoenix.controls.JFXTextField;
-import com.jfoenix.validation.RequiredFieldValidator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -13,10 +12,9 @@ import javafx.stage.Stage;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.SneakyThrows;
+import org.bsuir.dto.UserDto;
 import org.bsuir.service.UserService;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.client.RestTemplate;
 
 
 @Controller
@@ -24,6 +22,7 @@ import org.springframework.web.client.RestTemplate;
 public class AuthController {
 
     private final MainMenuController mainMenuController;
+    private final UserOptionController userOptionController;
     private final UserService userService;
 
     @FXML
@@ -44,9 +43,6 @@ public class AuthController {
     @Setter
     private Stage primaryStage;
 
-    @Value("Данное поле обязательно!")
-    private String REQUIRED_FIELD;
-
     public void initialize() {
 
     }
@@ -57,20 +53,27 @@ public class AuthController {
         loader.setController(mainMenuController);
         mainFrameStage.setScene(new Scene(loader.load()));
         mainFrameStage.setTitle("Мотосалон");
-        mainFrameStage.setOnCloseRequest(e -> primaryStage.show());
+        primaryStage.hide();
         mainFrameStage.showAndWait();
-        primaryStage.close();
-
     }
 
     @FXML
     @SneakyThrows
     void logIn(ActionEvent event) {
-//        String email = email_fd.getText();
-//        String password = password_fd.getText();
-//        if(userService.auth(email,password)){
-//            launchMainFrame();
-//        }
-        launchMainFrame();
+        try {
+            String email = email_fd.getText().trim();
+            String password = password_fd.getText().trim();
+            UserDto userDto = userService.auth(email, password);
+            if (userDto != null) {
+                userOptionController.setAuthorizedUser(userDto);
+                launchMainFrame();
+            } else infoLabel.setText("Проверьте введенные данные!");
+        }catch (Exception e){
+            errorAlert("Проверьте введенные");
+        }
+    }
+
+    private void errorAlert(String message) {
+        new Alert(Alert.AlertType.ERROR, message).show();
     }
 }

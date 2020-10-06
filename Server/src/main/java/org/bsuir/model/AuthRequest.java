@@ -1,7 +1,6 @@
 package org.bsuir.model;
 
 import lombok.Data;
-import lombok.Getter;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;

@@ -2,7 +2,6 @@ package org.bsuir.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.bsuir.dto.OrderDto;
-import org.bsuir.dto.UserDto;
 import org.bsuir.model.Description;
 import org.bsuir.model.Order;
 import org.bsuir.service.OrderService;

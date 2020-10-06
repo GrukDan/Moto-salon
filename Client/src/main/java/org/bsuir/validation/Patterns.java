@@ -7,9 +7,9 @@ public final class Patterns {
             "+@" +
             "([A-Za-z]{2,4}[\\.]{1}[a-z]{2,4})";
     public static final String PRODUCER_PRODUCT_NAME_PATTERN =
-            "\\w{3,30}[0-9]?\\w{0,15}[\\.-]?\\w{0,15}";
+            "^[а-яА-ЯёЁa-zA-Z0-9-_\\.]{2,20}\\s?[а-яА-ЯёЁa-zA-Z0-9-_\\.]{2,20}$";
     public static final String PRODUCER_NUMBER_PATTERN =
             "[\\+]?[0-9]{5,15}";
     public static final String USER_NAME_PATTERN =
-            "[A-Za-zА-Яа-я ]{1,30}";
+            "^[а-яА-ЯёЁa-zA-Z-\\.]{2,20}[\\s]{0,1}[а-яА-ЯёЁa-zA-Z0-9-_\\.]{2,20}$";
 }

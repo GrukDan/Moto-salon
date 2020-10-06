@@ -35,13 +35,13 @@
                               <TableColumn fx:id="customer_col" editable="false" prefWidth="144.0" text="Оформил" />
                               <TableColumn fx:id="date_col" prefWidth="151.0" text="Дата доставки" />
                               <TableColumn fx:id="quant_col" prefWidth="110.0" text="Количество" />
-                              <TableColumn fx:id="description_col" prefWidth="173.0" text="Описание" />
+                              <TableColumn fx:id="description_col" editable="false" prefWidth="173.0" text="Описание" />
                           </columns>
                            <effect>
                               <InnerShadow />
                            </effect>
                         </TableView>
-                        <Button fx:id="delete_btn" layoutX="304.0" layoutY="366.0" mnemonicParsing="false" onAction="#delete" prefHeight="42.0" prefWidth="206.0" style="-fx-background-color: red; -fx-background-radius: 25; -fx-border-radius: 25; -fx-border-color: black;" text="Удалить выбранный">
+                        <Button fx:id="delete_btn" layoutX="304.0" layoutY="366.0" mnemonicParsing="false" onAction="#delete" prefHeight="42.0" prefWidth="206.0" style="-fx-background-color: #e23b3b; -fx-background-radius: 25; -fx-border-radius: 25; -fx-border-color: black;" text="Удалить выбранный">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>

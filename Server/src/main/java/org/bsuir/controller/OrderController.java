@@ -32,6 +32,7 @@ public class OrderController {
 
     @PostMapping
     public void save(@RequestBody Orders orders){
+        log.info("SAVE ORDER OF: {}",orders.getOrderTime());
         orderService.save(orders);
     }
 
@@ -42,16 +43,19 @@ public class OrderController {
 
     @GetMapping(value = "/all-dto")
     public ResponseEntity getAllDto(){
+        log.info("GET ALL ORDER-DTOS");
         return ResponseEntity.ok(orderService.getAllDto());
     }
 
     @PostMapping(value = "/save-all")
     public ResponseEntity saveAll(@RequestBody List<OrdersDto> orderDtos){
+        log.info("UPDATE ORDERS");
         return ResponseEntity.ok(orderService.saveAllAndGetDtos(orderDtos));
     }
 
     @PostMapping(value = "/descriptions")
     public ResponseEntity save(@RequestBody Description description){
+        log.info("SAVE DESCRIPTION: {}",description.getDescription());
         return ResponseEntity.ok(orderService.saveDescription(description));
     }
 }

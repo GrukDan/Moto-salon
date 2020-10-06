@@ -2,7 +2,6 @@ package org.bsuir.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.bsuir.dto.ProductDto;
 import org.bsuir.dto.UserDto;
 import org.bsuir.model.AuthRequest;
 import org.bsuir.model.User;
@@ -22,8 +21,8 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping(value = "/auth")
-    public Boolean auth(@RequestBody @Valid AuthRequest authRequest){
-        log.info("Authentication:{}",authRequest.getEmail());
+    public UserDto auth(@RequestBody @Valid AuthRequest authRequest){
+        log.info("Authentication: {}",authRequest.getEmail());
         return userService.authenticate(authRequest.getEmail(),authRequest.getPassword());
     }
 
@@ -40,6 +39,7 @@ public class UserController {
 
     @PostMapping
     public void save(@RequestBody User user){
+        log.info("SAVE USER: {}",user.getEmail());
         userService.save(user);
     }
 
@@ -50,11 +50,19 @@ public class UserController {
 
     @GetMapping(value = "/all-dto")
     public ResponseEntity getAllDto(){
+        log.info("GET ALL USER-DTOS");
         return ResponseEntity.ok(userService.getAllDto());
     }
 
     @PostMapping(value = "/save-all")
     public ResponseEntity saveAll(@RequestBody List<UserDto> userDtos){
+        log.info("SAVE ALL USERS");
         return ResponseEntity.ok(userService.saveAll(userDtos));
+    }
+
+    @PostMapping(value = "/dto")
+    public ResponseEntity saveDto(@RequestBody UserDto userDto){
+        log.info("UPDATE USER: {}",userDto.getEmail());
+        return ResponseEntity.ok(userService.saveDto(userDto));
     }
 }

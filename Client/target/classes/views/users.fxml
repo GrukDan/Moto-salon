@@ -16,12 +16,12 @@
           <TableColumn fx:id="user_name_col" prefWidth="154.0" text="Имя" />
           <TableColumn fx:id="user_surname_col" prefWidth="120.0" text="Фамилия" />
             <TableColumn fx:id="user_email_col" prefWidth="183.0" text="Email" />
-            <TableColumn fx:id="user_role_col" prefWidth="134.0" text="Роль" />
+            <TableColumn fx:id="user_role_col" editable="false" prefWidth="134.0" text="Роль" />
         </columns>
       </TableView>
       <JFXTextField fx:id="user_name_fd" layoutX="617.0" layoutY="74.0" prefHeight="38.0" prefWidth="347.0">
          <font>
-            <Font size="15.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
       </JFXTextField>
       <Label fx:id="user_name_lbl" layoutX="617.0" layoutY="26.0" prefHeight="32.0" prefWidth="227.0" text="Имя">

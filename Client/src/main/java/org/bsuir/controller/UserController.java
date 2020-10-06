@@ -179,7 +179,12 @@ public class UserController {
                             .email(userEmail)
                             .role(roles.stream().filter(role -> role.getRoleName().equals(roleName)).findFirst().orElseThrow(NullPointerException::new).getIdRole())
                             .build();
-                    userService.save(user);
+                    try {
+                        userService.save(user);
+                    }catch (Exception exception){
+                        errorAlert("Ошибка добавлени! Возможно, пользователь с таким адресом email уже существует");
+                        exception.printStackTrace();
+                    }
                     clearInputs();
                     loadUsers();
                 } else errorAlert("Ошибка введенных данных!");
